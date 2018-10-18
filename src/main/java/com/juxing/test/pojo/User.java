@@ -4,6 +4,15 @@ public class User {
     private int id;
     private String username;
     private String password;
+    private String pic;
+
+    public String getPic() {
+        return pic;
+    }
+
+    public void setPic(String pic) {
+        this.pic = pic;
+    }
 
     public User() {
     }

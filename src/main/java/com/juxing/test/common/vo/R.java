@@ -1,4 +1,4 @@
-package com.juxing.test.common;
+package com.juxing.test.common.vo;
 
 /*统一json结果类 非查询*/
 public class R {

@@ -1,6 +1,6 @@
 package com.juxing.test.service.impl;
 
-import com.juxing.test.common.R;
+import com.juxing.test.common.vo.R;
 import com.juxing.test.mapper.UserMapper;
 import com.juxing.test.pojo.User;
 import com.juxing.test.service.UserService;
@@ -16,7 +16,7 @@ public class UserServiceImpl implements UserService {
 
     //注册
     @Override
-    public R register(User user) {
+    public R save(User user) {
         if (userMapper.insert(user)> 0) {
             return new R(1,"success",null);
         }else {
