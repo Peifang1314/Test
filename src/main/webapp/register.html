@@ -3,16 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <title>用户注册</title>
+
+    <script src="js/jquery.min.js">
+
+        $("#btn").onclick({
+                $.ajax({
+                url:"getCode.do",
+                type: 'post',
+                dataType: 'true',
+                data: {},
+                success: function () {
+
+                }
+            })
+        })
+
+    </script>
+
 </head>
 <body>
 <div style="align-content: center">
     <form action="register.do" method="post" enctype="multipart/form-data">
-        <input name="username" placeholder="用户名"><br>
-        <input name="password" placeholder="密码"><br>
-        <input name="pp" type="file">
+        <input name="username" placeholder="姓名"><br>
+        <input name="shopname" placeholder="店名"><br>
+        <input name="tel" placeholder="手机号码"><br>
+        <input name="address" placeholder="地址">
         <input type="submit" value="注册">
-
     </form>
+
 </div>
+<p>------</p>
+<form action="/getUser.do" method="post">
+
+    <input name="text" placeholder="查找的姓名或手机号">
+    <input type="submit" value="模糊查找">
+</form>
+
+<form action="/changeTel.do" method="post">
+    <input name="tel" placeholder="新的手机号码">
+    <input placeholder="重复新号码">
+    <input type="submit" value="修改">
+</form>
+
+<form action="/getCode.do" method="post">
+    <input name="tel" placeholder="手机号码"> <input id="btn" type="button" value="发送验证码">
+    <input name="code" placeholder="输入验证码">
+    <input type="submit" value="提交">
 </body>
 </html>

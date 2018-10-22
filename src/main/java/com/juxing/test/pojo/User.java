@@ -1,27 +1,27 @@
 package com.juxing.test.pojo;
 
+import java.util.Date;
+
 public class User {
-    private int id;
+    private Integer id;
+
     private String username;
-    private String password;
-    private String pic;
 
-    public String getPic() {
-        return pic;
-    }
+    private String shopname;
 
-    public void setPic(String pic) {
-        this.pic = pic;
-    }
+    private String tel;
 
-    public User() {
-    }
+    private String address;
 
-    public int getId() {
+    private Integer flag;
+
+    private Date createtime;
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -30,14 +30,46 @@ public class User {
     }
 
     public void setUsername(String username) {
-        this.username = username;
+        this.username = username == null ? null : username.trim();
     }
 
-    public String getPassword() {
-        return password;
+    public String getShopname() {
+        return shopname;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setShopname(String shopname) {
+        this.shopname = shopname == null ? null : shopname.trim();
+    }
+
+    public String getTel() {
+        return tel;
+    }
+
+    public void setTel(String tel) {
+        this.tel = tel == null ? null : tel.trim();
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address == null ? null : address.trim();
+    }
+
+    public Integer getFlag() {
+        return flag;
+    }
+
+    public void setFlag(Integer flag) {
+        this.flag = flag;
+    }
+
+    public Date getCreatetime() {
+        return createtime;
+    }
+
+    public void setCreatetime(Date createtime) {
+        this.createtime = createtime;
     }
 }

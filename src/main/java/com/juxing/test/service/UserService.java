@@ -6,6 +6,9 @@ import com.juxing.test.pojo.User;
 public interface UserService {
 
     R save(User user);
+    R query(String text);
+
+    R telCheck(int tel);
 
 
 }

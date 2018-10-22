@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.juxing.test.mapper.StudyMapper" >
+  <resultMap id="BaseResultMap" type="com.juxing.test.pojo.Study" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="classname" property="classname" jdbcType="VARCHAR" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="tel" property="tel" jdbcType="VARCHAR" />
+    <result column="code" property="code" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, classname, username, content, tel, code
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_study
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_study
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.juxing.test.pojo.Study" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_study (classname, username, content, 
+      tel, code)
+    values (#{classname,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, 
+      #{tel,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR})
+  </insert>
+
+  <update id="updateByPrimaryKey" parameterType="com.juxing.test.pojo.Study" >
+    update t_study
+    set classname = #{classname,jdbcType=VARCHAR},
+      username = #{username,jdbcType=VARCHAR},
+      content = #{content,jdbcType=VARCHAR},
+      tel = #{tel,jdbcType=VARCHAR},
+      code = #{code,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
